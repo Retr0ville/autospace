@@ -43,7 +43,7 @@ input {
 const ImageThumb = ({ image }: any): JSX.Element => <img className="img-fluid col-6 rounded" src={URL.createObjectURL(image)} alt={image.name} />;
 const cloudinaryApi = "https://api.cloudinary.com/v1_1/rtrvl/image/upload";
 const upr = "automart-un"
-const baseUrl = process.env.APP_URL || "http://127.0.0.1:8030"
+const baseUrl = process.env.APP_URL || "https://rtrvl-automart.herokuapp.com/"
 const getUrlFromFile = async (myFile: any) => {
   try {
     const fd = new FormData();
