@@ -5,7 +5,7 @@ import axios from "axios";
 import styled from 'styled-components';
 import svgs from '../svg';
 
-const baseUrl = process.env.APP_URL || "https://rtrvl-automart.herokuapp.com/"
+const baseUrl = process.env.APP_URL || "https://rtrvl-automart.herokuapp.com"
 
 const DetailWrapper = styled.div`
   min-width:400px;
