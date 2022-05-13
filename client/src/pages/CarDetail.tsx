@@ -85,7 +85,7 @@ const CarDetail = () => {
         <div className="rule my-3 align-self-center" />
         <div className="bg-light rounded-alt d-flex justify-content-center align-self-center py-4 col-10 col-lg-8">
           <div className="flex-column d-flex justify-content-center align-items-center col-6 px-3">
-            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-center mb-2 mb-md-4">
+            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-cente mb-2 mb-md-4">
               <span className="color-gray me-3">
                 Name:
               </span>
@@ -93,7 +93,7 @@ const CarDetail = () => {
                 {carData && carData.name || "N/A"}
               </span>
             </div>
-            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-center mb-2 mb-md-4">
+            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-cente mb-2 mb-md-4">
               <span className="color-gray me-3">
                 Body Type:
               </span>
@@ -101,7 +101,7 @@ const CarDetail = () => {
                 {carData && carData.bodyType || "N/A"}
               </span>
             </div>
-            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-center mb-2 mb-md-4">
+            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-cente mb-2 mb-md-4">
               <span className="color-gray me-3">
                 Engine:
               </span>
@@ -109,7 +109,7 @@ const CarDetail = () => {
                 {carData && carData.engine || "N/A"}
               </span>
             </div>
-            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-center mb-2 mb-md-4">
+            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-cente mb-2 mb-md-4">
               <span className="color-gray me-3">
                 Odometer:
               </span>
@@ -119,8 +119,8 @@ const CarDetail = () => {
             </div>
           </div>
           <div className="v-rule" />
-          <div className="flex-column d-flex justify-content-center align-items-center ps-3 col-6 ">
-            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-center mb-2 mb-md-4">
+          <div className="flex-column d-flex justify-content-center align-items-center ps-5 ms-2 col-6 ">
+            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-cente mb-2 mb-md-4">
               <span className="color-gray me-3">
                 Price:
               </span>
@@ -128,7 +128,7 @@ const CarDetail = () => {
                 {carData && `$${carData.price}` || "N/A"}
               </span>
             </div>
-            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-center mb-2 mb-md-4">
+            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-cente mb-2 mb-md-4">
               <span className="color-gray me-3">
                 Transmission:
               </span>
@@ -136,7 +136,7 @@ const CarDetail = () => {
                 {carData && carData.transmission || "N/A"}
               </span>
             </div>
-            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-center mb-2 mb-md-4">
+            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-cente mb-2 mb-md-4">
               <span className="color-gray me-3">
                 Fuel Type:
               </span>
@@ -144,7 +144,7 @@ const CarDetail = () => {
                 {carData && carData.fuelType || "N/A"}
               </span>
             </div>
-            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-center mb-2 mb-md-4">
+            <div className="d-flex flex-column align-self-start flex-md-row align-self-md-cente mb-2 mb-md-4">
               <span className="color-gray me-3">
                 Fuel Capacity:
               </span>
