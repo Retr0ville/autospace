@@ -43,7 +43,7 @@ input {
 const ImageThumb = ({ image }: any): JSX.Element => <img className="img-fluid col-6 rounded" src={URL.createObjectURL(image)} alt={image.name} />;
 const cloudinaryApi = "https://api.cloudinary.com/v1_1/rtrvl/image/upload";
 const upr = "automart-un"
-const baseUrl = process.env.NODE_ENV === "production" ? "https://rtrvl-automart.herokuapp.com" : "127.0.0.1:8030"
+const baseUrl = process.env.NODE_ENV === "production" ? "https://rtrvl-automart.herokuapp.com" : "http://127.0.0.1:8030"
 const getUrlFromFile = async (myFile: any) => {
   try {
     const fd = new FormData();
@@ -202,7 +202,7 @@ const PostCar = () => {
             <h6 className="fw-bold w-100 color-gray-3">
               Fuel type
             </h6>
-            <select value={formData.fuelTypes ?? ''} onChange={handleChange} className="rounded border-light border-1 p-1 ps-2 w-100" name="fuelType" id="fuelType">
+            <select value={formData.fuelType ?? ''} onChange={handleChange} className="rounded border-light border-1 p-1 ps-2 w-100" name="fuelType" id="fuelType">
               {
                 fuelTypes.map((type) => {
                   return <option value={type} key={type}>{type}</option>
