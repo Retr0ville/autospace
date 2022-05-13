@@ -8,7 +8,7 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "yarn --cwd ./client start",
-    "heroku-postbuild": "yarn --cwd ./client install && yarn --cwd ./client build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false DISABLE_ESLINT_PLUGIN=true yarn --cwd ./client install && yarn --cwd ./client build"
   },
   "author": "rtrvl",
   "license": "ISC",
