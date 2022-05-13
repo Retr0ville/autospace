@@ -9,7 +9,8 @@ import Masonry from 'react-masonry-css';
 import { FaTrashAlt } from 'react-icons/fa';
 import svgs from '../svg';
 
-const baseUrl = process.env.APP_URL || "https://rtrvl-automart.herokuapp.com";
+const baseUrl = process.env.NODE_ENV === "production" ? "https://rtrvl-automart.herokuapp.com" : "127.0.0.1:8030"
+
 
 const HomeListWrapper = styled.div`
   .delete {
@@ -111,7 +112,7 @@ const HomeList = () => {
                       {car.name}
                     </h6>
                     <h5 className="fw-bolder color-gray-1">
-                      {car.price}
+                      {`$${car.price}`}
                     </h5>
                     <div className="rule" />
                     <div className="d-flex w-100 justify-content-around me-2">
