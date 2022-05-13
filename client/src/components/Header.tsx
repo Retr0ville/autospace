@@ -49,10 +49,10 @@ const Header = () => {
               Buy and sell your cars_
             </h6>
           </div>
-          <SellCar classNames="mt-auto d-sm-none d-lg-flex" />
+          <SellCar classNames="mt-auto mt-lg-2 me-lg-0 ms-lg-auto align-self-lg-center d-sm-none d-lg-flex p-2 shadow rounded-infinite hover-shadow-bot sell-container" />
         </div>
-        <div className="sell-container h-50 p-1 d-flex align-items-center justify-content-center ms-auto  rounded-infinite hover-shadow-bot d-none d-sm-flex d-lg-none">
-          <SellCar classNames="pt-2" />
+        <div className="sell-container h-50 ps-2 pe-1 d-flex align-items-center justify-content-center ms-auto  rounded-infinite hover-shadow-bot d-none d-sm-flex d-lg-none">
+          <SellCar classNames="py-1 pt-2" />
         </div>
       </div>
     </HeaderWrapper>

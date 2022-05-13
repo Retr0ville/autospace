@@ -9,7 +9,7 @@ import Masonry from 'react-masonry-css';
 import { FaTrashAlt } from 'react-icons/fa';
 import svgs from '../svg';
 
-const baseUrl = process.env.NODE_ENV === "production" ? "https://rtrvl-automart.herokuapp.com" : "127.0.0.1:8030"
+const baseUrl = process.env.NODE_ENV === "production" ? "https://rtrvl-automart.herokuapp.com" : "http://127.0.0.1:8030"
 
 
 const HomeListWrapper = styled.div`

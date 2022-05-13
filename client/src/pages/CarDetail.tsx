@@ -5,7 +5,7 @@ import axios from "axios";
 import styled from 'styled-components';
 import svgs from '../svg';
 
-const baseUrl = process.env.NODE_ENV === "production" ? "https://rtrvl-automart.herokuapp.com" : "127.0.0.1:8030"
+const baseUrl = process.env.NODE_ENV === "production" ? "https://rtrvl-automart.herokuapp.com" : "http://127.0.0.1:8030"
 
 const DetailWrapper = styled.div`
   min-width:400px;
@@ -15,6 +15,13 @@ const DetailWrapper = styled.div`
     max-width: 550px;
     border-radius:0 0 2rem 2rem;
   }
+
+  img {
+    @media only screen and (max-width: 768px){
+    border-radius: 1rem 1rem 1rem 1rem;
+    margin-top: .25rem !important;
+  }
+}
 `;
 
 const CarDetail = () => {
@@ -34,7 +41,7 @@ const CarDetail = () => {
     <DetailWrapper className="col-9 container align-self-center mb-3">
       <div className="container d-flex flex-column align-items-center pb-4 px-0 bg-lighter">
         {reqErr && <div className="text-danger">{reqErr}</div>}
-        <div className="d-flex flex-column col-9 mt-1">
+        <div className="wrap d-flex flex-column col-9">
           <img src={carData.imageUrl} alt="car" className="w-100 align-self-center mb-3" />
           <div className="d-flex w-100 flex-column flex-lg-row">
             <div className="d-flex col-12 col-lg-6 mb-4 mb-lg-0 mt-lg-2">
