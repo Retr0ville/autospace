@@ -19,6 +19,9 @@ const HomeListWrapper = styled.div`
     right: 10px;
   }
   min-width:390px;
+  img {
+    border-radius:0.25rem 0.25rem 0 0;
+  }
   .pin, .pin-mid, .pin-bot {
     position: absolute;
     width: 10px;
