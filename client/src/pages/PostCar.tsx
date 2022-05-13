@@ -67,6 +67,7 @@ const PostCar = () => {
   const [file, setFile] = React.useState<any>(null);
   const [errFile, setErrFile] = React.useState("");
   const [submitErr, setSubmitErr] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
   const navigate = useNavigate();
 
   // validate
@@ -82,23 +83,35 @@ const PostCar = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    setLoading(true);
     validate();
     const valid = isValid();
-    if (!valid) return;
+    if (!valid) {
+      setLoading(false);
+      return;
+    }
     getUrlFromFile(file)
       .then((dbUrl) => {
         const toPost = { ...formData, imageUrl: dbUrl }
         axios.post(`${baseUrl}/api/cars`, toPost)
           .then((posted) => {
             if ((!posted.data.error)) {
+              setLoading(false);
               navigate("/");
             }
             else {
               setSubmitErr(posted.data.error);
+              setLoading(false);
             }
-          }).catch(() => setSubmitErr("An error occured, item not posted! please try again"))
+          }).catch(() => {
+            setSubmitErr("An error occured, item not posted! please try again")
+            setLoading(false);
+          })
       })
-      .catch(() => setSubmitErr("An error occured, item not posted! please try again"))
+      .catch(() => {
+        setSubmitErr("An error occured, item not posted! please try again")
+        setLoading(false);
+      })
   }
 
 
@@ -229,7 +242,9 @@ const PostCar = () => {
             <input type="checkbox" checked={formData.priorUse || false} onChange={handleChange} className="rounded border-light border-1" placeholder="vehicle's full name..." name="priorUse" id="priorUse" />
           </label>
           <div className="d-flex flex-column align-items-end ms-4 my-3 mb-5 pe-2 w-100">
-            <button type='submit' className="d-flex justify-content-center align-items-center me-5 col-6 col-lg-4 pointer mt-1 rounded p-1 border-0 bg-color-primary py-2 color-light shadow fw-bold hover-shadow mb-1">
+            <button type='submit' className="d-flex justify-content-center align-items-center me-5 col-6 col-lg-4 pointer mt-1 rounded p-1 border-0 bg-color-primary py-2 color-light shadow fw-bold hover-shadow mb-1 pe-2">
+              {loading && (<span className="spinner-grow spinner-grow-sm me-2" role="status" aria-hidden="true" />)
+              }
               Save Car
             </button>
             <small className="mb-3 me-5 text-secondary">makes car available for sale</small>
