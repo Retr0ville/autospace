@@ -54,7 +54,7 @@ const register_user = async (req, res) => {
         const newUser = new UserModel({ ...req.body, password: hash });
         newUser
           .save()
-          .then(({_id, username, email, picUrl, created_at, updatedAt}) => {
+          .then(({_id, username, email, picUrl, location, created_at, updatedAt}) => {
             const token = jwt.sign({ email, userId: _id }, jwtSecret, {
               expiresIn: "2d",
             });
@@ -75,7 +75,7 @@ const register_user = async (req, res) => {
           .catch((err) => {
             res.status(400).send({
               error: err.message,
-              message: "User could not be saved to db",
+              message: "User was saved with errors",
             });
             return;
             // throw new Error("User could'nt be saved to db");

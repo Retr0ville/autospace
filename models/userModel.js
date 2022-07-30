@@ -27,7 +27,10 @@ const userSchema  = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: 'Car,'
   }],
-  location: String,
+  location: {
+    type: String,
+    default: "Nigeria"
+  },
 },  {timestamps: { createdAt: 'created_at'}})
 
 const UserModel = mongoose.model('User', userSchema)
