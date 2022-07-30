@@ -1,4 +1,5 @@
 const express = require('express')
+const validateToken = require("../middlewares/authMiddleware")
 const router = express.Router()
 const { get_user_cars, get_user, get_users } = require('../controllers/userControllers')
 

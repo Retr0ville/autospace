@@ -1,5 +1,6 @@
 const carModel = require("../models/CarModel");
 const mongoose = require("mongoose");
+const UserModel = require("../models/userModel");
 
 const get_cars = async (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
@@ -33,14 +34,13 @@ const get_car = async (req, res) => {
     res.status(404).send({ error: "car doesn't exist in database" });
   }
 };
- //! test this *//
+//! test this *//
 const delete_car = async (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
   const { id } = req.params;
   const { userId } = req.jwtData;
   var isYourCar = false;
 
-  //! test this *//
   const authorized = async (userId, id) => {
     let status = false;
     carModel
@@ -59,7 +59,14 @@ const delete_car = async (req, res) => {
     carModel
       .findByIdAndDelete(id)
       .then((car) => {
-        car && res.status(200).send(car);
+          UserModel.findByIdAndUpdate(
+            userId,
+            { $pull: { cars: id } },
+          )
+          .then(()=>{
+            car && res.status(200).send(car);
+            return
+          })
       })
       .catch((err) => {
         res.status(400).send({ error: err.message });
@@ -83,18 +90,29 @@ const create_cars = (req, res) => {
     carInstance
       .save()
       .then((car) => {
-        res.status(201).send(car);
+        UserModel.findByIdAndUpdate(
+          user,
+          { $push: { cars: car._id } },
+          { upsert: true }
+        )
+          .then(() => {
+            res.status(201).send(car);
+            return;
+          })
+          .catch((err) => {
+            res.send({ error: err.message });
+            return;
+          });
       })
       .catch((err) => {
         res.send({ error: err.message });
+        return;
       });
   } catch (err) {
-    res
-      .status(400)
-      .send({
-        error: err.message,
-        message: "an error occured, couldn't update the database",
-      });
+    res.status(400).send({
+      error: err.message,
+      message: "an error occured, couldn't update the database",
+    });
   }
 };
 

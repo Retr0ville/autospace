@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 const sauce = process.env.JWTOKEN;
-export const validateToken = (req, res, next) => {
+const validateToken = (req, res, next) => {
   const { authorization } = req.headers || null;
   const token = authorization && authorization.split(" ")[1];
 
@@ -18,3 +18,5 @@ export const validateToken = (req, res, next) => {
     next();
   });
 };
+
+module.exports = validateToken
