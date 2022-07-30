@@ -89,3 +89,9 @@ const login_user = async (req, res) => {
     res.send({ error: err.message });
   }
 };
+
+module.exports = {
+  get_user,
+  register_user,
+  login_user,
+};
