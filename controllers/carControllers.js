@@ -13,7 +13,7 @@ const get_cars = async ( req, res ) => {
 const get_car = async ( req, res ) => {
   res.set('Access-Control-Allow-Origin', '*')
   const { id } = req.params
-  const exists = ( (mongoose.Types.ObjectId.isValid(id)) && (await carModel.exists({_id: id})))
+  const exists = ((mongoose.Types.ObjectId.isValid(id)) && (await carModel.exists({_id: id})))
   if(exists){
   carModel.findById(id)
     .then((car)=>{
