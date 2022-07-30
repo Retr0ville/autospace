@@ -116,6 +116,10 @@ const carSchema = new mongoose.Schema(
       type: [String, "{VALUE} has an invalid data type"],
       default: void 0,
     },
+    location: {
+      type: String,
+      default: "Nigeria",
+    },
     user: {
       type: Schema.Types.ObjectId,
       ref: "User",

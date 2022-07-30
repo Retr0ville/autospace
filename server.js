@@ -5,7 +5,8 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const path = require('path')
 const carRoutes = require('./routes/carRoutes')
-
+const authRoutes = require('./routes/authRoutes')
+const userRoutes = require('./routes/userRoutes')
 const app = express()
 
 //middlewares
@@ -46,7 +47,8 @@ DELETE to /api/car:id << remove car and return deleted car ;
 */
 
 app.use('/api', carRoutes);
-app.use('/auth', require('./routes/authRoutes'))
+app.use('/auth', authRoutes);
+app.use('/users', userRoutes);
 //server static files if production
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
