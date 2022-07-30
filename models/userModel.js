@@ -1,4 +1,4 @@
-import { Schema } from "mongoose"
+const { Schema } = require("mongoose")
 const mongoose = require('mongoose')
 // const {z} = require('zod')
 
@@ -17,7 +17,11 @@ const userSchema  = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, 'password is required']
+    required: [true, 'password is required'],
+    minLength: [8, "expected 8 or more characters, got {VALUE}"],
+  },
+  picUrl: {
+    type: String,
   },
   cars:[{
     type: Schema.Types.ObjectId,
