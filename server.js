@@ -46,6 +46,7 @@ DELETE to /api/car:id << remove car and return deleted car ;
 */
 
 app.use('/api', carRoutes);
+app.use('/auth', require('./routes/authRoutes'))
 //server static files if production
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
